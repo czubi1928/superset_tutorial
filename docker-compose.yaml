@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  superset:
+      build:
+        context: ./docker/superset
+        dockerfile: Dockerfile
+      container_name: superset
+      environment:
+        - ADMIN_USERNAME=superset
+        - ADMIN_EMAIL=superset@superset.com
+        - ADMIN_PASSWORD=superset
+      ports:
+        - '8088:8088'
+      volumes:
+        - ./data:/app/data
